@@ -50,25 +50,36 @@ public class Monomio implements Comparable<Monomio> {
 	public int compareTo(Monomio o) {
 		if (equals(o))
 			return 0;
-		Monomio otro = (Monomio) o;
+		Monomio otro = o;
 		if (grado < otro.grado)
 			return -1;
 		else
 			return 1;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(coeficiente);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + grado;
+		result = prime * result + literal;
+		return result;
+	}
+
 	/**
 	 * Comprueba si 2 monomios son compatibles
 	 */
 	public boolean compatible(Monomio otro) {
-		if (grado == otro.grado)
-			return true;
-		else
-			return false;
+		return grado == otro.grado;
+
 	}
 
 	/**
 	 * Suma el monomio this con otro
+	 * @throws Exception 
 	 */
 	public Monomio sumar(Monomio otro) throws Exception {
 		if (!compatible(otro)) {
