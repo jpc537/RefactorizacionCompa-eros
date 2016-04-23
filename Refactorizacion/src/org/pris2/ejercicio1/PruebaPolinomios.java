@@ -13,7 +13,7 @@ public class PruebaPolinomios {
 
 	public static void main(String[] args) {
 		
-		List<Monomio> coefisVariao = new ArrayList<Monomio>();
+		List<Monomio> coefisVariao = new ArrayList<>();
 		coefisVariao.add(new Monomio(1.0, 2, 'x'));
 		coefisVariao.add(new Monomio(3.0, 3, 'x'));
 		coefisVariao.add(new Monomio(5.0, 4, 'x'));
@@ -28,7 +28,7 @@ public class PruebaPolinomios {
 		p1.juntarComunes2((ArrayList<Monomio>) coefisVariao);
 		Logger.getLogger(PruebaPolinomios.class.getName()).log(Level.INFO, " ");
 		
-		List<Monomio> coefisVariao2 = new ArrayList<Monomio>();
+		List<Monomio> coefisVariao2 = new ArrayList<>();
 		coefisVariao2.add(new Monomio(1.0, 2, 'x'));
 		coefisVariao2.add(new Monomio(3.0, 3, 'x'));
 		coefisVariao2.add(new Monomio(5.0, 4, 'x'));
