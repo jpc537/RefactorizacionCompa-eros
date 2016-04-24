@@ -23,8 +23,8 @@ public class Monomio implements Comparable<Monomio> {
 	}
 
 	@Override
-	public String toString() {
-		if (coeficiente == 0)
+	public String toString() {	
+		if (Double.compare(coeficiente, 0) == 0)
 			return "";
 		// en funcion de si es positivo o negativo definimos 2 formas de mostrar
 		DecimalFormat form = new DecimalFormat("+#.#;-#.#");
@@ -42,7 +42,9 @@ public class Monomio implements Comparable<Monomio> {
 		if (!(o instanceof Monomio))
 			return false;
 		Monomio otro = (Monomio) o;
-		return grado == otro.grado && coeficiente == otro.coeficiente
+		int coefIguales = Double.compare(coeficiente, otro.coeficiente);
+		
+		return grado == otro.grado && coefIguales == 0
 				&& literal == otro.literal;
 	}
 
@@ -79,7 +81,7 @@ public class Monomio implements Comparable<Monomio> {
 
 	/**
 	 * Suma el monomio this con otro
-	 * @throws Exception 
+	 * @throws Exception si los monomios no son compatibles
 	 */
 	public Monomio sumar(Monomio otro) throws Exception {
 		if (!compatible(otro)) {
