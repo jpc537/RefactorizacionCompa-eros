@@ -57,4 +57,9 @@ public class Ejercicio3 {
 
        return funcionRaiz;
    }
+public static String getLog() {
+	return LOG;
+}
+   
+   
 }
