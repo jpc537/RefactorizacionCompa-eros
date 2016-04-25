@@ -17,7 +17,7 @@ public class UsoEjercicio3 {
 		double funcionDer;
 		double funcionIzq;
 		double funcionRaiz;
-		
+
 		Scanner in = new Scanner(System.in);
 		Logger.getLogger(Ejercicio3.getLog()).log(Level.INFO, "Introduzca el valor del extremo de la izquierda: ");
 		xizq = in.nextInt();
@@ -37,8 +37,9 @@ public class UsoEjercicio3 {
 
 		/**
 		 * Si f(xizq)*f(xr)<0ïƒ redefinir lÃ­mite derecho del intervalo:
-		 * xderïƒŸxr Si f(xizq)*f(xr)>0ïƒ redefinir lÃ­mite izquierdo del
-		 * intervalo: xizqïƒŸxr Si f(xizq)*f(xr)=0ïƒ hay una raÃ­z en xr
+		 * xderïƒŸxr Si f(xizq)*f(xr)>0ïƒ redefinir lÃ­mite izquierdo
+		 * del intervalo: xizqïƒŸxr Si f(xizq)*f(xr)=0ïƒ hay una raÃ­z
+		 * en xr
 		 **/
 		while (funcionRaiz < precision) {
 			if ((funcionIzq * funcionRaiz) < 0) {
@@ -46,7 +47,7 @@ public class UsoEjercicio3 {
 						"Vuelva a introducir el limite derecho del intervalo: ");
 
 				xder = in.nextInt();
-				Logger.getLogger(Ejercicio3.getLog()).log(Level.INFO, "El intervalo es [" + xizq + "," + xder + "]");
+				Logger.getLogger(Ejercicio3.getLog()).log(Level.INFO, "El intervalo es: [" + xizq + "," + xder + "]");
 
 				funcionDer = Math.pow(xder, 5) - Math.pow(xder, 4) + Math.pow(xder, 3) - 3;
 				Logger.getLogger(Ejercicio3.getLog()).log(Level.INFO, "f(xder)=" + funcionDer);

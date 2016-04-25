@@ -3,7 +3,6 @@ package org.pris2.ejercicio1;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 
-
 public class Monomio implements Comparable<Monomio> {
 
 	private double coeficiente;
@@ -15,6 +14,7 @@ public class Monomio implements Comparable<Monomio> {
 		this.grado = grado;
 		this.literal = literal;
 	}
+
 	/**
 	 * Genera un objeto de tipo Monomio a partir de otro para los aux
 	 */
@@ -23,7 +23,7 @@ public class Monomio implements Comparable<Monomio> {
 	}
 
 	@Override
-	public String toString() {	
+	public String toString() {
 		if (Double.compare(coeficiente, 0) == 0)
 			return "";
 		// en funcion de si es positivo o negativo definimos 2 formas de mostrar
@@ -33,8 +33,7 @@ public class Monomio implements Comparable<Monomio> {
 		dc.setDecimalSeparator('.');
 		form.setDecimalFormatSymbols(dc);
 		// en funcion de grado mostramos el literal y la potencia
-		return form.format(coeficiente) + (grado != 0 ? literal : "")
-				+ (grado > 1 ? "^" + grado : "");
+		return form.format(coeficiente) + (grado != 0 ? literal : "") + (grado > 1 ? "^" + grado : "");
 	}
 
 	@Override
@@ -43,9 +42,8 @@ public class Monomio implements Comparable<Monomio> {
 			return false;
 		Monomio otro = (Monomio) o;
 		int coefIguales = Double.compare(coeficiente, otro.coeficiente);
-		
-		return grado == otro.grado && coefIguales == 0
-				&& literal == otro.literal;
+
+		return grado == otro.grado && coefIguales == 0 && literal == otro.literal;
 	}
 
 	@Override
@@ -81,31 +79,31 @@ public class Monomio implements Comparable<Monomio> {
 
 	/**
 	 * Suma el monomio this con otro
-	 * @throws Exception si los monomios no son compatibles
+	 * 
+	 * @throws Exception
+	 *             si los monomios no son compatibles
 	 */
 	public Monomio sumar(Monomio otro) throws Exception {
 		if (!compatible(otro)) {
-			throw new Exception("(" + this + ") + (" + otro
-					+ ")");
+			throw new Exception("(" + this + ") + (" + otro + ")");
 		} else
 			return new Monomio(coeficiente + otro.coeficiente, grado, literal);
 	}
-	
+
 	/**
 	 * Multiplica el monomio this con otro
 	 */
 	public Monomio mult(Monomio otro) {
-		return new Monomio(coeficiente * otro.coeficiente, grado + otro.grado,
-				literal);
+		return new Monomio(coeficiente * otro.coeficiente, grado + otro.grado, literal);
 	}
-	
+
 	/**
 	 * Suma dos monomios
 	 */
-	public static Monomio sumar(Monomio a, Monomio b)
-			throws Exception {
+	public static Monomio sumar(Monomio a, Monomio b) throws Exception {
 		return a.sumar(b);
 	}
+
 	/**
 	 * Multiplica dos monomios
 	 */
@@ -118,16 +116,15 @@ public class Monomio implements Comparable<Monomio> {
 	 */
 	public void addSumar(Monomio otro) throws Exception {
 		if (!compatible(otro))
-			throw new Exception("(" + this + ") + (" + otro
-					+ ")");
+			throw new Exception("(" + this + ") + (" + otro + ")");
 		else
 			coeficiente += otro.coeficiente;
 	}
-	
+
 	public double getCoeficiente() {
 		return coeficiente;
 	}
-	
+
 	public int getGrado() {
 		return grado;
 	}

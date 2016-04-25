@@ -20,7 +20,7 @@ public class Polinomio {
 		Collections.sort(terminos);
 		this.terminos = terminos;
 	}
-	
+
 	/**
 	 * Genera un objeto de tipo Polinomio a partir de un array de coeficientes
 	 * completo
@@ -30,12 +30,10 @@ public class Polinomio {
 		for (int i = 0; i < coeficientes.length; i++)
 			terminos.add(new Monomio(coeficientes[i], i, 'x'));
 	}
-	
+
 	public List<Monomio> getTerminos() {
 		return terminos;
 	}
-
-
 
 	@Override
 	public String toString() {
@@ -82,12 +80,14 @@ public class Polinomio {
 		}
 		return new Polinomio(termSumas);
 	}
+
 	/**
 	 * divide el polinomio this con otro
 	 */
 	private Polinomio dividir(Polinomio otro) {
 		return null;
 	}
+
 	/**
 	 * Multiplica el polinomio this con otro
 	 */
@@ -109,8 +109,8 @@ public class Polinomio {
 	 * Dado una lista de monomios junta los comunes
 	 */
 	@SuppressWarnings("unchecked")
-	public void juntarComunes(ArrayList<Monomio> terms) {
-		ArrayList<Monomio> auxTerms = (ArrayList<Monomio>) terms.clone();
+	public void juntarComunes(List<Monomio> terms) {
+		ArrayList<Monomio> auxTerms = (ArrayList<Monomio>) ((ArrayList<Monomio>) terms).clone();
 		terms.clear();// limpio terms, metere los validos
 		Iterator<Monomio> it = auxTerms.iterator();
 		ListIterator<Monomio> it2 = auxTerms.listIterator();
@@ -138,14 +138,14 @@ public class Polinomio {
 			// reseteo iteradores
 			it = auxTerms.iterator();
 			it2 = auxTerms.listIterator();
-			
+
 		}
-		
+
 	}
 
-	//para mostrar el polinomio simplificado
-	public void juntarComunes2(ArrayList<Monomio> terms) {
-		ArrayList<Monomio> auxTerms = (ArrayList<Monomio>) terms.clone();
+	// para mostrar el polinomio simplificado
+	public void juntarComunes2(List<Monomio> terms) {
+		ArrayList<Monomio> auxTerms = (ArrayList<Monomio>) ((ArrayList<Monomio>) terms).clone();
 		terms.clear();// limpio terms, metere los validos
 		Iterator<Monomio> it = auxTerms.iterator();
 		ListIterator<Monomio> it2 = auxTerms.listIterator();
@@ -175,10 +175,9 @@ public class Polinomio {
 			it2 = auxTerms.listIterator();
 			Logger.getLogger(PruebaPolinomios.class.getName()).log(Level.WARNING, comunes.toString());
 		}
-		
+
 	}
 
-	
 	/**
 	 * Suma dos Polinomios
 	 */
@@ -186,19 +185,18 @@ public class Polinomio {
 		return a.sumar(b);
 	}
 
-	 /**
+	/**
 	 * Multiplica dos Polinomios
 	 */
 	public static Polinomio mult(Polinomio a, Polinomio b) {
 		return a.mult(b);
 	}
+
 	/**
 	 * divide polinomios
 	 */
-	public static Polinomio dividir(Polinomio a,Polinomio b){
+	public static Polinomio dividir(Polinomio a, Polinomio b) {
 		return a.dividir(b);
 	}
 
-	
-	
 }
